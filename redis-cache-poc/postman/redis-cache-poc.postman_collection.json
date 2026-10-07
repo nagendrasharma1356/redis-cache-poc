@@ -1,0 +1,34 @@
+{
+  "info": {
+    "name": "Redis Cache POC",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:8080" }],
+  "item": [
+    { "name": "Get all products (cached)", "request": { "method": "GET", "url": "{{baseUrl}}/api/products" } },
+    { "name": "Get product by id (cached)", "request": { "method": "GET", "url": "{{baseUrl}}/api/products/1" } },
+    { "name": "Get by category (cached)", "request": { "method": "GET", "url": "{{baseUrl}}/api/products/category/electronics" } },
+    {
+      "name": "Create product (evicts lists)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Webcam HD\",\n  \"category\": \"Electronics\",\n  \"price\": 2499.00,\n  \"stock\": 40\n}" },
+        "url": "{{baseUrl}}/api/products"
+      }
+    },
+    {
+      "name": "Update product (@CachePut)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Wireless Mouse Pro\",\n  \"category\": \"Electronics\",\n  \"price\": 999.00,\n  \"stock\": 100\n}" },
+        "url": "{{baseUrl}}/api/products/1"
+      }
+    },
+    { "name": "Delete product (evicts)", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/products/10" } },
+    { "name": "Cache: list keys + TTL", "request": { "method": "GET", "url": "{{baseUrl}}/api/cache/keys" } },
+    { "name": "Cache: raw value", "request": { "method": "GET", "url": "{{baseUrl}}/api/cache/value?key=poc:products:1" } },
+    { "name": "Cache: clear all", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/cache/clear" } }
+  ]
+}

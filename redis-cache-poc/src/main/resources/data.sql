@@ -1,0 +1,10 @@
+INSERT INTO products (name, category, price, stock) VALUES ('Wireless Mouse', 'Electronics', 799.00, 120);
+INSERT INTO products (name, category, price, stock) VALUES ('Mechanical Keyboard', 'Electronics', 3499.00, 45);
+INSERT INTO products (name, category, price, stock) VALUES ('USB-C Hub', 'Electronics', 1599.00, 80);
+INSERT INTO products (name, category, price, stock) VALUES ('Laptop Stand', 'Accessories', 1299.00, 60);
+INSERT INTO products (name, category, price, stock) VALUES ('Notebook A5', 'Stationery', 149.00, 500);
+INSERT INTO products (name, category, price, stock) VALUES ('Gel Pen Pack', 'Stationery', 99.00, 800);
+INSERT INTO products (name, category, price, stock) VALUES ('Desk Lamp', 'Home', 1899.00, 35);
+INSERT INTO products (name, category, price, stock) VALUES ('Water Bottle', 'Home', 449.00, 210);
+INSERT INTO products (name, category, price, stock) VALUES ('Backpack', 'Accessories', 2199.00, 70);
+INSERT INTO products (name, category, price, stock) VALUES ('Bluetooth Speaker', 'Electronics', 2599.00, 55);
